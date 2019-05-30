@@ -11,6 +11,8 @@ queue = ["revise anki flashcards",
         "get whatsapp working",
         "watch long trecks on skate decks"]
 
+cache = []
+
 # suggest returns True if the suggestion has been accepted
 def suggest(suggestion):
     # valid only takes input that has been converted to lower case
@@ -30,5 +32,9 @@ while(True):
         queue.pop()
     else:
         queue[0] = queue.pop()
+        cache.append(suggestion)
+    else:
+        queue[0] = queue.pop()
+    print(cache)
     print(queue)
     time.sleep(3)
