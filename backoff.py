@@ -11,21 +11,20 @@ queue = ["revise anki flashcards",
         "get whatsapp working",
         "watch long trecks on skate decks"]
 
-# suggestion = queue[-1]
-# suggest last element in list
-
 # suggest returns True if the suggestion has been accepted
 def suggest(suggestion):
     # valid only takes input that has been converted to lower case
     valid = {"yes": True, "y": True, "no": False, "n": False}
 
-    response = input(queue[-1] + "? [Y/n]\n")
+    response = input(suggestion + "? [Y/n]\n")
     return(valid[response.lower()])
 
+# suggest last element in list
 # if suggestion accepted, pop it from the stack and never think about it again
 # if not accepted, put it in the front of the stack
 while(True):
-    accepted = suggest(queue[-1])
+    suggestion = queue[-1]
+    accepted = suggest(suggestion)
 
     if accepted:
         queue.pop()
