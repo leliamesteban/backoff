@@ -2,14 +2,9 @@
 import time
 
 # queue is a list of things to do like youtube's watch later
-queue = ["revise anki flashcards",
-        "read lectures 5, 6, 7, 7 (other)",
-        "make flaschards for convolutions",
-        "sign contract",
-        "read article about skating australia",
-        "fix skateboard",
-        "get whatsapp working",
-        "watch long trecks on skate decks"]
+with open('queue', 'r+') as f:
+    queue = f.read().splitlines()
+print(queue)
 
 cache = []
 
@@ -33,8 +28,6 @@ while(True):
     else:
         queue[0] = queue.pop()
         cache.append(suggestion)
-    else:
-        queue[0] = queue.pop()
     print(cache)
     print(queue)
     time.sleep(3)
