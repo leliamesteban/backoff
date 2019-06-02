@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.7
-import time
+import time 
 
 # queue is a list of things to do like youtube's watch later
 with open('queue', 'r+') as f:
@@ -20,14 +20,14 @@ def suggest(suggestion):
 # if suggestion accepted, pop it from the stack and never think about it again
 # if not accepted, put it in the front of the stack
 while(True):
-    suggestion = queue[-1]
-    accepted = suggest(suggestion)
+    suggestion = -1
+    accepted = suggest(queue[suggestion])
 
     if accepted:
-        queue.pop()
+        cache.append(queue[suggestion])
+        queue.pop(suggestion)
     else:
-        queue[0] = queue.pop()
-        cache.append(suggestion)
+        queue[0] = queue.pop(suggestion)
     print(cache)
     print(queue)
     time.sleep(3)
